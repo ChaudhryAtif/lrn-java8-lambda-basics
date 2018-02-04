@@ -14,10 +14,22 @@ public class Greeter {
         Greeter greeter = new Greeter();
 //        greeter.greet();
 
-        HelloWorldGreeting helloWorldGreeting = new HelloWorldGreeting();
-        greeter.greet(helloWorldGreeting);
+//        HelloWorldGreeting helloWorldGreeting = new HelloWorldGreeting();
+//        greeter.greet(helloWorldGreeting);
+//        helloWorldGreeting.perform();
 
-        Greeting myGreetingFunction = () -> System.out.println("Hello World!");
+        Greeting myGreetingFunction = () -> System.out.println("Hello World! from lambda");
+        myGreetingFunction.perform();
+        greeter.greet(myGreetingFunction);
+
+
+        Greeting innerClassGreeting = new Greeting() {
+            public void perform() {
+                System.out.println("Hello world! from inner class");
+            }
+        };
+        innerClassGreeting.perform();
+        greeter.greet(innerClassGreeting);
     }
 
 }
