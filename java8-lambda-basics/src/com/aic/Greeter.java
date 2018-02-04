@@ -16,6 +16,8 @@ public class Greeter {
 
         HelloWorldGreeting helloWorldGreeting = new HelloWorldGreeting();
         greeter.greet(helloWorldGreeting);
+
+        Greeting myGreetingFunction = () -> System.out.println("Hello World!");
     }
 
 }
