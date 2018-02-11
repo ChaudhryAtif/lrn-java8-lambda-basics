@@ -5,6 +5,7 @@ import com.aic.unit1.Person;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.function.Consumer;
 import java.util.function.Predicate;
 
 public class StandardFunctionalInterfacesExample {
@@ -24,29 +25,22 @@ public class StandardFunctionalInterfacesExample {
 
         // Step 2: Create a method that prints all elements in the list
         System.out.println("Printing all people");
-//        printAll(people);
-        printConditionally(people, p -> true);
+        performConditionally(people, p -> true, p -> System.out.println(p));
 
         // Step 3: Create a method that prints all people that have last name beginning with C
         System.out.println("\nPrinting all people with last name beginning with C");
-        printConditionally(people, p -> p.getLastName().startsWith("C"));
+        performConditionally(people, p -> p.getLastName().startsWith("C"), p -> System.out.println(p));
 
-        System.out.println("\nPrinting all people with first name beginning with C");
-        printConditionally(people, p -> p.getFirstName().startsWith("C"));
+        System.out.println("\nPrinting all people's first name with first name beginning with C");
+        performConditionally(people, p -> p.getFirstName().startsWith("C"), p -> System.out.println(p.getFirstName()));
 
     }
 
-    private static void printConditionally(List<Person> people, Predicate<Person> predicate) {
+    private static void performConditionally(List<Person> people, Predicate<Person> predicate, Consumer<Person> consumer) {
         for (Person person : people) {
             if (predicate.test(person)) {
-                System.out.println(person);
+                consumer.accept(person);
             }
-        }
-    }
-
-    private static void printAll(List<Person> people) {
-        for (Person person : people) {
-            System.out.println(person);
         }
     }
 }
