@@ -1,9 +1,8 @@
-package com.aic;
+package com.aic.unit1;
 
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-import java.util.function.Predicate;
 
 public class Unit1ExerciseSolutionJava8 {
 
@@ -34,9 +33,9 @@ public class Unit1ExerciseSolutionJava8 {
 
     }
 
-    private static void printConditionally(List<Person> people, Predicate<Person> predicate) {
+    private static void printConditionally(List<Person> people, PersonCondition condition) {
         for (Person person : people) {
-            if (predicate.test(person)) {
+            if (condition.test(person)) {
                 System.out.println(person);
             }
         }

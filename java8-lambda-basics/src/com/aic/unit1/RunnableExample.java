@@ -1,4 +1,4 @@
-package com.aic;
+package com.aic.unit1;
 
 public class RunnableExample {
 
